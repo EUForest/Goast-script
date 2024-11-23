@@ -113,7 +113,7 @@ install_Goast() {
             exit 1
         fi
         echo -e "检测到 Goast 最新版本：${last_version}，开始安装"
-        wget -q -N --no-check-certificate -O /usr/local/Goast/Goast.zip https://github.com/EUForest/Goast-script/releases/download/${last_version}/Goast.zip
+        wget -q -N --no-check-certificate -O /usr/local/Goast/Goast.zip https://github.com/EUForest/Goast-script/releases/download/${last_version}/Goast_linux64.zip
         if [[ $? -ne 0 ]]; then
             echo -e "${red}下载 Goast 失败，请确保你的服务器能够下载 Github 的文件${plain}"
             exit 1
