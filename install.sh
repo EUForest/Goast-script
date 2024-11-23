@@ -134,7 +134,7 @@ install_Goast() {
     chmod +x Goast
     mkdir /etc/Goast/ -p
     rm /etc/systemd/system/Goast.service -f
-    file="https://github.com/EUForest/Goast-script/raw/master/Goast.service"
+    file="https://raw.githubusercontent.com/EUForest/Goast-script/refs/heads/main/Goast.service"
     wget -q -N --no-check-certificate -O /etc/systemd/system/Goast.service ${file}
     #cp -f Goast.service /etc/systemd/system/
     systemctl daemon-reload
@@ -174,7 +174,7 @@ install_Goast() {
     if [[ ! -f /etc/Goast/custom_inbound.json ]]; then
         cp custom_inbound.json /etc/Goast/
     fi
-    curl -o /usr/bin/Goast -Ls https://github.com/EUForest/Goast-script/master/Goast.sh
+    curl -o /usr/bin/Goast -Ls https://raw.githubusercontent.com/EUForest/Goast-script/refs/heads/main/Goast.sh
     chmod +x /usr/bin/Goast
     if [ ! -L /usr/bin/goast ]; then
         ln -s /usr/bin/Goast /usr/bin/goast
