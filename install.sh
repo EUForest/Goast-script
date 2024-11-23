@@ -176,9 +176,9 @@ install_Goast() {
     fi
     curl -o /usr/bin/Goast -Ls https://github.com/EUForest/Goast-script/master/Goast.sh
     chmod +x /usr/bin/Goast
-    if [ ! -L /usr/bin/v2bx ]; then
-        ln -s /usr/bin/Goast /usr/bin/v2bx
-        chmod +x /usr/bin/v2bx
+    if [ ! -L /usr/bin/goast ]; then
+        ln -s /usr/bin/Goast /usr/bin/goast
+        chmod +x /usr/bin/goast
     fi
     cd $cur_dir
     rm -f install.sh
