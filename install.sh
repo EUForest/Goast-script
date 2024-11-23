@@ -113,24 +113,24 @@ install_Goast() {
             exit 1
         fi
         echo -e "检测到 Goast 最新版本：${last_version}，开始安装"
-        wget -q -N --no-check-certificate -O /usr/local/Goast/Goast-linux.zip https://github.com/EUForest/Goast/releases/download/${last_version}/Goast-linux-${arch}.zip
+        wget -q -N --no-check-certificate -O /usr/local/Goast/Goast-linux.zip https://github.com/EUForest/Goast-script/releases/download/${last_version}/Goast.zip
         if [[ $? -ne 0 ]]; then
             echo -e "${red}下载 Goast 失败，请确保你的服务器能够下载 Github 的文件${plain}"
             exit 1
         fi
     else
         last_version=$1
-        url="https://github.com/EUForest/Goast/releases/download/${last_version}/Goast-linux-${arch}.zip"
+        url="https://github.com/EUForest/Goast-script/releases/download/${last_version}/Goast-linux-${arch}.zip"
         echo -e "开始安装 Goast $1"
-        wget -q -N --no-check-certificate -O /usr/local/Goast/Goast-linux.zip ${url}
+        wget -q -N --no-check-certificate -O /usr/local/Goast/Goast.zip ${url}
         if [[ $? -ne 0 ]]; then
             echo -e "${red}下载 Goast $1 失败，请确保此版本存在${plain}"
             exit 1
         fi
     fi
 
-    unzip Goast-linux.zip
-    rm Goast-linux.zip -f
+    unzip Goast.zip
+    rm Goast.zip -f
     chmod +x Goast
     mkdir /etc/Goast/ -p
     rm /etc/systemd/system/Goast.service -f
@@ -174,7 +174,7 @@ install_Goast() {
     if [[ ! -f /etc/Goast/custom_inbound.json ]]; then
         cp custom_inbound.json /etc/Goast/
     fi
-    curl -o /usr/bin/Goast -Ls https://raw.githubusercontent.com/EUForest/Goast-script/master/Goast.sh
+    curl -o /usr/bin/Goast -Ls https://github.com/EUForest/Goast-script/master/Goast.sh
     chmod +x /usr/bin/Goast
     if [ ! -L /usr/bin/v2bx ]; then
         ln -s /usr/bin/Goast /usr/bin/v2bx
@@ -205,7 +205,7 @@ install_Goast() {
     if [[ $first_install == true ]]; then
         read -rp "检测到你为第一次安装Goast,是否自动直接生成配置文件？(y/n): " if_generate
         if [[ $if_generate == [Yy] ]]; then
-            curl -o ./initconfig.sh -Ls https://raw.githubusercontent.com/EUForest/Goast-script/master/initconfig.sh
+            curl -o ./initconfig.sh -Ls https://github.com/EUForest/Goast-script/master/initconfig.sh
             source initconfig.sh
             rm initconfig.sh -f
             generate_config_file

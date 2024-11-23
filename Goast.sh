@@ -249,7 +249,7 @@ install_bbr() {
 }
 
 update_shell() {
-    wget -O /usr/bin/Goast -N --no-check-certificate https://raw.githubusercontent.com/EUForest/Goast-script/master/Goast.sh
+    wget -O /usr/bin/Goast -N --no-check-certificate https://github.com/EUForest/Goast-script/master/Goast.sh
     if [[ $? != 0 ]]; then
         echo ""
         echo -e "${red}下载脚本失败，请检查本机能否连接 Github${plain}"
