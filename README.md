@@ -14,5 +14,5 @@ Find the source code here: [EUForest/Goast](https://github.com/EUForest/Goast)
 # 一键安装
 
 ```
-wget -N https://github.com/EUForest/Goast-script/master/install.sh && bash install.sh
+wget -N https://raw.githubusercontent.com/EUForest/Goast-script/refs/heads/main/install.sh && bash install.sh
 ```
