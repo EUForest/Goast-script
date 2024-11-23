@@ -107,13 +107,13 @@ install_Goast() {
     cd /usr/local/Goast/
 
     if  [ $# == 0 ] ;then
-        last_version=$(curl -Ls "https://api.github.com/repos/EUForest/Goast/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+        last_version=$(curl -Ls "https://api.github.com/repos/EUForest/Goast-script/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
         if [[ ! -n "$last_version" ]]; then
             echo -e "${red}检测 Goast 版本失败，可能是超出 Github API 限制，请稍后再试，或手动指定 Goast 版本安装${plain}"
             exit 1
         fi
         echo -e "检测到 Goast 最新版本：${last_version}，开始安装"
-        wget -q -N --no-check-certificate -O /usr/local/Goast/Goast-linux.zip https://github.com/EUForest/Goast-script/releases/download/${last_version}/Goast.zip
+        wget -q -N --no-check-certificate -O /usr/local/Goast/Goast.zip https://github.com/EUForest/Goast-script/releases/download/${last_version}/Goast.zip
         if [[ $? -ne 0 ]]; then
             echo -e "${red}下载 Goast 失败，请确保你的服务器能够下载 Github 的文件${plain}"
             exit 1
